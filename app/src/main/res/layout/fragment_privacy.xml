@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PrivacyFragment"
+    android:background="@drawable/gradient_drawable">
+
+    <EditText
+        android:id="@+id/editEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_gravity="top|center"
+        android:layout_marginTop="100dp"
+        android:autofillHints="Email"
+        android:background="@color/white"
+        android:clickable="false"
+        android:cursorVisible="false"
+        android:ems="10"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:hint="@string/Email"
+        android:inputType="textEmailAddress"
+        android:textAlignment="center"
+        android:textColorHint="#757575" />
+
+    <EditText
+        android:id="@+id/editName"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_gravity="top|center"
+        android:layout_marginTop="170dp"
+        android:autofillHints="Login"
+        android:background="@color/white"
+        android:ems="10"
+        android:hint="@string/Login"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        android:textColorHint="#757575" />
+
+
+    <EditText
+        android:id="@+id/editPass"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_gravity="top|center"
+        android:layout_marginTop="240dp"
+        android:autofillHints="Password"
+        android:background="@color/white"
+        android:ems="10"
+        android:hint="@string/Password"
+        android:inputType="textEmailAddress"
+        android:textAlignment="center"
+        android:textColorHint="#757575" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center"
+        android:layout_marginTop="550dp"
+        android:background="@color/white"
+        android:text="@string/Update"
+        android:textAllCaps="false"
+        android:textColor="#757575" />
+</FrameLayout>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Гарантийные Сроки</string>
+    <string name="hello_blank_fragment">Я новый фрагмент</string>
+    <string name="Profile">Профиль</string>
+    <string name="Themes">Темы приложения</string>
+    <string name="Create">Создать</string>
+    <string name="Main">Главная</string>
+    <string name="List">Список</string>
+    <string name="Settings">Настройки</string>
+    <string name="Text_name">warranty \t\t periods</string>
+    <string name="NameCompany">Название фирмы</string>
+    <string name="SendToSpisok">Отправить</string>
+    <string name="Login">Логин</string>
+    <string name="SwipeRight">Свайпни вправо</string>
+    <string name="Password">Пароль</string>
+    <string name="Email">Емейл</string>
+    <string name="RetypePassword">Повтори Пароль</string>
+    <string name="Registration">Регистрация</string>
+    <string name="SwipeLeft">Свайпни Влево</string>
+    <string name="LightTheme">Светлая</string>
+    <string name="DarkTheme">Темная</string>
+    <string name="Phone">Номер телефона</string>
+    <string name="NameTechnics">Название техники</string>
+    <string name="DateWarranty">Дата гарантии</string>
+    <string name="Update">Обновить</string>
+    <string name="Privacy">Конфиденциальность</string>
+    <string name="Exit">Выход</string>
+    <string name="Description">Описание</string>
+</resources>

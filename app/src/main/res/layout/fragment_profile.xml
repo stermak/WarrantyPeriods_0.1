@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileFragment"
+    android:background="@drawable/gradient_drawable">
+
+    <Button
+        android:id="@+id/privacyButton"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center"
+        android:layout_marginTop="410dp"
+        android:background="@color/white"
+        android:text="@string/Privacy"
+        android:textAllCaps="false"
+        android:textColor="#039BE5"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/signOutButton"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center"
+        android:layout_marginTop="550dp"
+        android:background="@color/white"
+        android:text="@string/Exit"
+        android:textAllCaps="false"
+        android:textColor="#757575" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="110dp"
+        android:text="@string/Login"
+        android:textColor="#CFD8DC"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/LoginProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="132dp"
+        android:text="..."
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="160dp"
+        android:text="@string/Email"
+        android:textColor="#E0E0E0"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/EmailProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="182dp"
+        android:text="..."
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
+</FrameLayout>
