@@ -69,5 +69,4 @@ public class MainActivity extends AppCompatActivity {
         ft.replace(R.id.HomeFragment, fragment);
         ft.commit();
     }
-
 }

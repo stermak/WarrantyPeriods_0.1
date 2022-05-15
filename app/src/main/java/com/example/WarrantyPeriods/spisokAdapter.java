@@ -20,7 +20,6 @@ public class spisokAdapter extends FirebaseRecyclerAdapter<spisok, spisokAdapter
     public void
     onBindViewHolder(@NonNull spisoksViewholder holder,int position, @NonNull spisok model)
     {
-
         holder.WarrantyName.setText(model.getWarrantyName());
         holder.CompanyName.setText(model.getCompanyName());
         holder.year1.setText(model.getYear1());
@@ -31,10 +30,10 @@ public class spisokAdapter extends FirebaseRecyclerAdapter<spisok, spisokAdapter
     public spisoksViewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
     {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.spisok, parent, false);
-        return new spisokAdapter.spisoksViewholder(view);
+        return new spisoksViewholder(view);
     }
 
-    class spisoksViewholder extends RecyclerView.ViewHolder {
+    static class spisoksViewholder extends RecyclerView.ViewHolder {
         TextView WarrantyName, CompanyName, year1;
         public spisoksViewholder(@NonNull View itemView)
         {
