@@ -1,4 +1,4 @@
-package com.example.kursach.Add;
+package com.example.WarrantyPeriods.Add;
 
 
 import android.app.Activity;
@@ -17,8 +17,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.kursach.LoadingDialog;
-import com.example.kursach.R;
+import com.example.WarrantyPeriods.LoadingDialog;
+import com.example.WarrantyPeriods.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.chip.Chip;
@@ -73,61 +73,55 @@ public class CreateFragment extends Fragment {
         storageRef = FirebaseStorage.getInstance().getReference();
         loadingDialog = new LoadingDialog(getActivity());
 
-        img.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent();
-                i.setType("warranty/*");
-                i.setAction(Intent.ACTION_GET_CONTENT);
-                startActivityForResult(Intent.createChooser(i, "warranty"), 1);
-            }
+        img.setOnClickListener(v -> {
+            Intent i = new Intent();
+            i.setType("warranty/*");
+            i.setAction(Intent.ACTION_GET_CONTENT);
+            startActivityForResult(Intent.createChooser(i, "warranty"), 1);
         });
-        submitBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String NameTechnics = WarrantyName.getText().toString();
-                if(NameTechnics.isEmpty()){
-                    WarrantyName.setError("Name needed");
-                    WarrantyName.requestFocus();
-                    return;
-                }
-                String NameCompany = CompanyName.getText().toString();
-                if(NameCompany.isEmpty()){
-                    CompanyName.setError("Company Name needed");
-                    CompanyName.requestFocus();
-                    return;
-                }
-                String DateWarranty = year1.getText().toString();
-                if(DateWarranty.isEmpty()){
-                    year1.setError("Year needed");
-                    year1.requestFocus();
-                    return;
-                }
-                String description = desc.getText().toString();
-                if(description.isEmpty()){
-                    desc.setError("Please provide description");
-                    desc.requestFocus();
-                    return;
-                }
-                List<String> categories = getCatogories();
-                if(categories.size() == 0){
-                    Toast.makeText(getContext(), "Select atleast 1 category", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                if(!imgSet){
-                    Toast.makeText(getContext(), "Please add image", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                Map<String, Object> docData = new HashMap<>();
-                docData.put("WarrantyName", NameTechnics);
-                docData.put("CompanyName", NameCompany);
-                docData.put("year", DateWarranty);
-                docData.put("description", description);
-                docData.put("categories", categories);
-
-                uploadImage(docData);
+        submitBtn.setOnClickListener(v -> {
+            String NameTechnics = WarrantyName.getText().toString();
+            if(NameTechnics.isEmpty()){
+                WarrantyName.setError("Name needed");
+                WarrantyName.requestFocus();
+                return;
             }
+            String NameCompany = CompanyName.getText().toString();
+            if(NameCompany.isEmpty()){
+                CompanyName.setError("Company Name needed");
+                CompanyName.requestFocus();
+                return;
+            }
+            String DateWarranty = year1.getText().toString();
+            if(DateWarranty.isEmpty()){
+                year1.setError("Year needed");
+                year1.requestFocus();
+                return;
+            }
+            String description = desc.getText().toString();
+            if(description.isEmpty()){
+                desc.setError("Please provide description");
+                desc.requestFocus();
+                return;
+            }
+            List<String> categories = getCatogories();
+            if(categories.size() == 0){
+                Toast.makeText(getContext(), "Select atleast 1 category", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if(!imgSet){
+                Toast.makeText(getContext(), "Please add image", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            Map<String, Object> docData = new HashMap<>();
+            docData.put("WarrantyName", NameTechnics);
+            docData.put("CompanyName", NameCompany);
+            docData.put("year", DateWarranty);
+            docData.put("description", description);
+            docData.put("categories", categories);
+
+            uploadImage(docData);
         });
     }
 
@@ -144,7 +138,7 @@ public class CreateFragment extends Fragment {
                 imgSet = true;
             }
         } catch(Error e){
-            //no handler necessary
+
         }
 
     }
@@ -166,18 +160,15 @@ public class CreateFragment extends Fragment {
         String docId = doc.getId();
         StorageReference imageRef = storageRef.child("warranty/"+docId);
         imageRef.putFile(imgUri)
-                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                    @Override
-                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                        //Toast.makeText(getContext(), "Image uploaded", Toast.LENGTH_SHORT).show();
-                        imageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                            @Override
-                            public void onSuccess(Uri uri) {
-                                docData.put("url", uri.toString());
-                                uploadDocument(docData, docId);
-                            }
-                        });
-                    }
+                .addOnSuccessListener(taskSnapshot -> {
+                    Toast.makeText(getContext(), "Image uploaded", Toast.LENGTH_SHORT).show();
+                    imageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            docData.put("url", uri.toString());
+                            uploadDocument(docData, docId);
+                        }
+                    });
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
@@ -193,20 +184,14 @@ public class CreateFragment extends Fragment {
         db.collection("list")
                 .document(docId)
                 .set(docData)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        Toast.makeText(getContext(), "Period added successfully", Toast.LENGTH_SHORT).show();
-                        clearForm();
-                        loadingDialog.stopLoading(false);
-                    }
+                .addOnSuccessListener(aVoid -> {
+                    Toast.makeText(getContext(), "Period added successfully", Toast.LENGTH_SHORT).show();
+                    clearForm();
+                    loadingDialog.stopLoading(false);
                 })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(getContext(), "Failed! try again", Toast.LENGTH_SHORT).show();
-                        loadingDialog.stopLoading(false);
-                    }
+                .addOnFailureListener(e -> {
+                    Toast.makeText(getContext(), "Failed! try again", Toast.LENGTH_SHORT).show();
+                    loadingDialog.stopLoading(false);
                 });
     }
     private void clearForm(){

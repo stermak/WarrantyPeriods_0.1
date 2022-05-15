@@ -1,4 +1,4 @@
-package com.example.kursach;
+package com.example.WarrantyPeriods;
 
 
 import android.content.Intent;
@@ -40,19 +40,9 @@ public class MainActivity extends AppCompatActivity {
         app_name = findViewById(R.id.app_name);
         calendar = findViewById(R.id.calend);
 
-        BtnSpisok.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, SpisokActivity.class);
-                startActivity(intent);
-            }
-        });
-        BtnCreate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, SpisokActivity.class);
-                startActivity(intent);
-            }
+        BtnSpisok.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, SpisokActivity.class);
+            startActivity(intent);
         });
     }
 

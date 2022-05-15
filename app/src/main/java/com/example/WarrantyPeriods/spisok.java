@@ -1,4 +1,4 @@
-package com.example.kursach;
+package com.example.WarrantyPeriods;
 
 public class spisok {
     private String WarrantyName ,CompanyName , year1;

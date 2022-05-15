@@ -1,4 +1,4 @@
-package com.example.kursach;
+package com.example.WarrantyPeriods;
 
 import org.junit.Test;
 

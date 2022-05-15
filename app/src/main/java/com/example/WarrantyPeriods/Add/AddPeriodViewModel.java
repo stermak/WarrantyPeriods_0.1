@@ -1,4 +1,4 @@
-package com.example.kursach.Add;
+package com.example.WarrantyPeriods.Add;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

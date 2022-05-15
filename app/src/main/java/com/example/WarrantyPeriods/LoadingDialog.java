@@ -1,4 +1,4 @@
-package com.example.kursach;
+package com.example.WarrantyPeriods;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -36,12 +36,9 @@ public class LoadingDialog {
             dialog.dismiss();
             return;
         }
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                isLoading = false;
-                dialog.dismiss();
-            }
+        handler.postDelayed(() -> {
+            isLoading = false;
+            dialog.dismiss();
         }, 1000);
     }
 }

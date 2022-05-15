@@ -1,4 +1,4 @@
-package com.example.kursach;
+package com.example.WarrantyPeriods;
 
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -102,27 +102,21 @@ public class PrivacyFragment extends Fragment {
         AuthCredential credential = EmailAuthProvider
                 .getCredential("user@example.com", "password1234");
 
-        update.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (!TextUtils.isEmpty(editName.getText().toString()) && !TextUtils.isEmpty(editPass.getText().toString())){
-                    assert user != null;
-                    myRef.child("Users").child(user.getUid()).child("name").setValue(editName.getText().toString());
-                    myRef.child("Users").child(user.getUid()).child("password").setValue(editPass.getText().toString());
-                    user.updatePassword(editPass.getText().toString()).addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            if (task.isSuccessful()){
-                                Toast.makeText(getContext(), "Пароль изменён", Toast.LENGTH_SHORT).show();
-                            }else {
-                                Toast.makeText(getContext(), "Пароль не изменён", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
-                }
-                else {
-                    Toast.makeText(getContext(), "Заполните все поля", Toast.LENGTH_SHORT).show();
-                }
+        update.setOnClickListener(view1 -> {
+            if (!TextUtils.isEmpty(editName.getText().toString()) && !TextUtils.isEmpty(editPass.getText().toString())){
+                assert user != null;
+                myRef.child("Users").child(user.getUid()).child("name").setValue(editName.getText().toString());
+                myRef.child("Users").child(user.getUid()).child("password").setValue(editPass.getText().toString());
+                user.updatePassword(editPass.getText().toString()).addOnCompleteListener(task -> {
+                    if (task.isSuccessful()){
+                        Toast.makeText(getContext(), "Пароль изменён", Toast.LENGTH_SHORT).show();
+                    }else {
+                        Toast.makeText(getContext(), "Пароль не изменён", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+            else {
+                Toast.makeText(getContext(), "Заполните все поля", Toast.LENGTH_SHORT).show();
             }
         });
 

@@ -1,4 +1,4 @@
-package com.example.kursach;
+package com.example.WarrantyPeriods;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,16 +20,13 @@ public class Splash extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                FirebaseUser currentUser = mAuth.getCurrentUser();
-                if (currentUser != null){
-                    startActivity(new Intent(Splash.this, MainActivity.class));
-                }
-                else {
-                    startActivity(new Intent(Splash.this, RegActivity.class));
-                }
+        new Handler().postDelayed(() -> {
+            FirebaseUser currentUser = mAuth.getCurrentUser();
+            if (currentUser != null){
+                startActivity(new Intent(Splash.this, MainActivity.class));
+            }
+            else {
+                startActivity(new Intent(Splash.this, RegActivity.class));
             }
         }, 2000);
     }

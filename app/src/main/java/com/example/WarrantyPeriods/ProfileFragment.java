@@ -1,4 +1,4 @@
-package com.example.kursach;
+package com.example.WarrantyPeriods;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -56,16 +56,13 @@ public class ProfileFragment extends Fragment {
         EmailProfile = view.findViewById(R.id.EmailProfile);
 
 
-        privacy.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Fragment fragment = new PrivacyFragment();
-                FragmentManager fm = getActivity().getSupportFragmentManager();
-                FragmentTransaction ft = fm.beginTransaction();
-                ft.setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out);
-                ft.replace(R.id.HomeFragment, fragment);
-                ft.commit();
-            }
+        privacy.setOnClickListener(view1 -> {
+            Fragment fragment = new PrivacyFragment();
+            FragmentManager fm = getActivity().getSupportFragmentManager();
+            FragmentTransaction ft = fm.beginTransaction();
+            ft.setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out);
+            ft.replace(R.id.HomeFragment, fragment);
+            ft.commit();
         });
 
         myRef.child("Users").addValueEventListener(new ValueEventListener() {
@@ -94,13 +91,10 @@ public class ProfileFragment extends Fragment {
             }
         });
 
-        signOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(getContext(), LogActivity.class);
-                startActivity(intent);
-            }
+        signOut.setOnClickListener(view12 -> {
+            FirebaseAuth.getInstance().signOut();
+            Intent intent = new Intent(getContext(), LogActivity.class);
+            startActivity(intent);
         });
         return view;
     }
