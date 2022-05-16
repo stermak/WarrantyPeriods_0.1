@@ -170,12 +170,9 @@ public class CreateFragment extends Fragment {
                         }
                     });
                 })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(getContext(), "Upload failed! try again", Toast.LENGTH_SHORT).show();
-                        loadingDialog.stopLoading(false);
-                    }
+                .addOnFailureListener(e -> {
+                    Toast.makeText(getContext(), "Upload failed! try again", Toast.LENGTH_SHORT).show();
+                    loadingDialog.stopLoading(false);
                 });
 
     }

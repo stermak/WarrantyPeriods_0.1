@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -24,7 +25,6 @@ public class SpisokFragment extends Fragment {
     spisokAdapter adapter;
     DatabaseReference mbase;
 
-
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -41,8 +41,6 @@ public class SpisokFragment extends Fragment {
         });
     }
 
-
-
     @Override
     public void onStart()
     {
@@ -56,7 +54,6 @@ public class SpisokFragment extends Fragment {
         super.onStop();
         adapter.stopListening();
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
