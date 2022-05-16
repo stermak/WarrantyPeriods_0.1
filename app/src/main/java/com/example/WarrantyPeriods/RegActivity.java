@@ -52,7 +52,7 @@ public class RegActivity extends AppCompatActivity {
                         user.setEmail(input_email.getText().toString());
                         user.setName(input_name.getText().toString());
                         user.setPassword(input_password.getText().toString());
-                        users.child(Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid()).setValue(user);
+                        users.child(input_name.getText().toString()).setValue(user);
                         Toast.makeText(RegActivity.this, "Регистрация пройдена", Toast.LENGTH_SHORT).show();
                     }
                     else {

@@ -35,9 +35,9 @@ public class SpisokFragment extends Fragment {
         adapter = new spisokAdapter(options);
         recyclerView.setAdapter(adapter);
         Button BtnCreate = view.findViewById(R.id.BtnCreate);
-        BtnCreate.setOnClickListener(view1 -> {
-            Bundle bundle = new Bundle();
-            Navigation.findNavController(view).navigate(R.id.action_spisokFragment_to_createFragment, bundle);
+        BtnCreate.setOnClickListener(viewCreate -> {
+            Bundle bundleCreate = new Bundle();
+            Navigation.findNavController(view).navigate(R.id.action_spisokFragment_to_createFragment, bundleCreate);
         });
     }
 

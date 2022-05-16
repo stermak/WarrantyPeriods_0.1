@@ -7,6 +7,19 @@
     tools:context=".SpisokFragment"
     android:background="@drawable/gradient_drawable">
 
+    <TextView
+        android:id="@+id/app_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/monoton"
+        android:gravity="center_horizontal"
+        android:text="@string/Text_name"
+        android:textColor="#82B1FF"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/BtnCreate"
         android:layout_width="wrap_content"
@@ -29,5 +42,35 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/BtnHome"
+        android:layout_width="122dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="10dp"
+        android:onClick="onClick"
+        android:text="@string/Main"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/BtnSpisok"
+        android:layout_width="122dp"
+        android:layout_height="60dp"
+        android:onClick="onClick1"
+        android:text="@string/List"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/BtnSettings"
+        app:layout_constraintStart_toEndOf="@+id/BtnHome" />
+
+    <Button
+        android:id="@+id/BtnSettings"
+        android:layout_width="122dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="10dp"
+        android:onClick="onClick"
+        android:text="@string/Settings"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
