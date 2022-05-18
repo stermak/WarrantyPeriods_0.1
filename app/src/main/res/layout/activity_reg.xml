@@ -6,6 +6,17 @@
     android:background="@drawable/gradient_drawable"
     tools:context=".RegActivity">
 
+    <TextView
+        android:id="@+id/app_name"
+        android:layout_marginStart="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/monoton"
+        android:gravity="center_horizontal"
+        android:text="@string/Text_name"
+        android:textColor="#82B1FF"
+        android:textSize="30sp" />
+
     <EditText
         android:id="@+id/input_name"
         android:layout_width="wrap_content"

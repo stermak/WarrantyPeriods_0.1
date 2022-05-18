@@ -26,18 +26,42 @@ public class SpisokFragment extends Fragment {
     DatabaseReference mbase;
 
     @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_spisok, container, false);
+    }
+
+    @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
         mbase = FirebaseDatabase.getInstance().getReference();
         recyclerView = view.findViewById(R.id.recycler1);
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
         FirebaseRecyclerOptions<spisok> options = new FirebaseRecyclerOptions.Builder<spisok>().setQuery(mbase, spisok.class).build();
         adapter = new spisokAdapter(options);
         recyclerView.setAdapter(adapter);
+
+
         Button BtnCreate = view.findViewById(R.id.BtnCreate);
+        Button BtnHome = view.findViewById(R.id.BtnHome);
+        Button BtnSpisok = view.findViewById(R.id.BtnSpisok);
+        Button BtnSettings = view.findViewById(R.id.BtnSettings);
         BtnCreate.setOnClickListener(viewCreate -> {
             Bundle bundleCreate = new Bundle();
             Navigation.findNavController(view).navigate(R.id.action_spisokFragment_to_createFragment, bundleCreate);
+        });
+        BtnHome.setOnClickListener(viewCreate -> {
+            Bundle bundleHome = new Bundle();
+            Navigation.findNavController(view).navigate(R.id.action_spisokFragment_to_mainFragment, bundleHome);
+        });
+        BtnSpisok.setOnClickListener(viewCreate -> {
+            Bundle bundleSpisok = new Bundle();
+            Navigation.findNavController(view).navigate(R.id.action_spisokFragment_self, bundleSpisok);
+        });
+        BtnSettings.setOnClickListener(viewCreate -> {
+            Bundle bundleSettings = new Bundle();
+            Navigation.findNavController(view).navigate(R.id.action_spisokFragment_to_settingsFragment, bundleSettings);
         });
     }
 
@@ -55,9 +79,5 @@ public class SpisokFragment extends Fragment {
         adapter.stopListening();
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_spisok, container, false);
-    }
+
 }

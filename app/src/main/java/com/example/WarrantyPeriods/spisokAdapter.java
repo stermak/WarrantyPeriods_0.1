@@ -11,33 +11,29 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 
 public class spisokAdapter extends FirebaseRecyclerAdapter<spisok, spisokAdapter.spisoksViewholder> {
 
-    public spisokAdapter(@NonNull FirebaseRecyclerOptions<spisok> options)
-    {
+    public spisokAdapter(@NonNull FirebaseRecyclerOptions<spisok> options) {
         super(options);
     }
 
+    @NonNull
     @Override
-    public void
-    onBindViewHolder(@NonNull spisoksViewholder holder,int position, @NonNull spisok model)
-    {
+    public spisoksViewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.spisok, parent, false);
+        return new spisoksViewholder(view);
+    }
+
+    @Override
+    protected void
+    onBindViewHolder(@NonNull spisoksViewholder holder, int position, @NonNull spisok model) {
         holder.WarrantyName.setText(model.getWarrantyName());
         holder.CompanyName.setText(model.getCompanyName());
         holder.year1.setText(model.getYear1());
         holder.desc.setText(model.getdesc());
     }
 
-    @NonNull
-    @Override
-    public spisoksViewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
-    {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.spisok, parent, false);
-        return new spisoksViewholder(view);
-    }
-
-    static class spisoksViewholder extends RecyclerView.ViewHolder {
+    public class spisoksViewholder extends RecyclerView.ViewHolder {
         TextView WarrantyName, CompanyName, year1, desc;
-        public spisoksViewholder(@NonNull View itemView)
-        {
+    public spisoksViewholder(@NonNull View itemView) {
             super(itemView);
             WarrantyName = itemView.findViewById(R.id.WarrantyName);
             CompanyName = itemView.findViewById(R.id.CompanyName);

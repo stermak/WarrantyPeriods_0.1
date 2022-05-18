@@ -1,75 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ProfileFragment"
     android:background="@drawable/gradient_drawable">
 
+    <TextView
+        android:id="@+id/app_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/monoton"
+        android:gravity="center_horizontal"
+        android:text="@string/Text_name"
+        android:textColor="#82B1FF"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/privacyButton"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_gravity="top|center"
-        android:layout_marginTop="410dp"
+        android:layout_marginBottom="100dp"
         android:background="@color/white"
         android:text="@string/Privacy"
         android:textAllCaps="false"
         android:textColor="#039BE5"
         android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/signOutButton"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_gravity="top|center"
-        android:layout_marginTop="550dp"
+        android:layout_marginTop="460dp"
         android:background="@color/white"
         android:text="@string/Exit"
         android:textAllCaps="false"
-        android:textColor="#757575" />
+        android:textColor="#757575"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="top|center"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="110dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="112dp"
         android:text="@string/Login"
         android:textColor="#CFD8DC"
-        android:textSize="14sp" />
-
-    <TextView
-        android:id="@+id/LoginProfile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|center"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="132dp"
-        android:text="..."
-        android:textColor="@color/white"
-        android:textSize="18sp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|center"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="160dp"
-        android:text="@string/Email"
-        android:textColor="#E0E0E0"
-        android:textSize="14sp" />
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/EmailProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="top|center"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="182dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="136dp"
         android:text="..."
         android:textColor="@color/white"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center"
+        android:layout_marginTop="104dp"
+        android:layout_marginEnd="112dp"
+        android:text="@string/Email"
+        android:textColor="#E0E0E0"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/LoginProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="136dp"
+        android:text="..."
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/BtnHome"
+        android:layout_width="122dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="10dp"
+        android:onClick="onClick"
+        android:text="@string/Main"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/BtnSpisok"
+        android:layout_width="122dp"
+        android:layout_height="60dp"
+        android:onClick="onClick1"
+        android:text="@string/List"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/BtnSettings"
+        app:layout_constraintStart_toEndOf="@+id/BtnHome" />
+
+    <Button
+        android:id="@+id/BtnSettings"
+        android:layout_width="122dp"
+        android:layout_height="60dp"
+        android:onClick="onClick"
+        android:text="@string/Settings"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -30,6 +30,7 @@ public class RegActivity extends AppCompatActivity {
     private FirebaseDatabase db;
     private DatabaseReference users;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

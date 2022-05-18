@@ -16,6 +16,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import com.example.WarrantyPeriods.LoadingDialog;
 import com.example.WarrantyPeriods.R;
@@ -202,5 +203,24 @@ public class CreateFragment extends Fragment {
             Chip chip = (Chip) chips.getChildAt(i);
             chip.setChecked(false);
         }
+    }
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        Button BtnHome = view.findViewById(R.id.BtnHome);
+        Button BtnSpisok = view.findViewById(R.id.BtnSpisok);
+        Button BtnSettings = view.findViewById(R.id.BtnSettings);
+        BtnHome.setOnClickListener(viewCreate -> {
+            Bundle bundleHome = new Bundle();
+            Navigation.findNavController(view).navigate(R.id.action_createFragment_to_mainFragment, bundleHome);
+        });
+        BtnSpisok.setOnClickListener(viewCreate -> {
+            Bundle bundleSpisok = new Bundle();
+            Navigation.findNavController(view).navigate(R.id.action_createFragment_to_spisokFragment, bundleSpisok);
+        });
+        BtnSettings.setOnClickListener(viewCreate -> {
+            Bundle bundleSettings = new Bundle();
+            Navigation.findNavController(view).navigate(R.id.action_createFragment_to_settingsFragment, bundleSettings);
+        });
     }
 }

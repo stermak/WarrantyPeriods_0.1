@@ -1,17 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".PrivacyFragment"
     android:background="@drawable/gradient_drawable">
 
+    <TextView
+        android:id="@+id/app_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/monoton"
+        android:gravity="center_horizontal"
+        android:text="@string/Text_name"
+        android:textColor="#82B1FF"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
         android:id="@+id/editEmail"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:layout_gravity="top|center"
-        android:layout_marginTop="100dp"
+        android:layout_marginBottom="40dp"
         android:autofillHints="Email"
         android:background="@color/white"
         android:clickable="false"
@@ -22,45 +36,88 @@
         android:hint="@string/Email"
         android:inputType="textEmailAddress"
         android:textAlignment="center"
-        android:textColorHint="#757575" />
+        android:textColorHint="#757575"
+        app:layout_constraintBottom_toTopOf="@+id/editName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/editName"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:layout_gravity="top|center"
-        android:layout_marginTop="170dp"
+        android:layout_marginBottom="40dp"
         android:autofillHints="Login"
         android:background="@color/white"
         android:ems="10"
         android:hint="@string/Login"
         android:inputType="textPersonName"
         android:textAlignment="center"
-        android:textColorHint="#757575" />
-
+        android:textColorHint="#757575"
+        app:layout_constraintBottom_toTopOf="@+id/editPass"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/editPass"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:layout_gravity="top|center"
-        android:layout_marginTop="240dp"
+        android:layout_marginBottom="40dp"
         android:autofillHints="Password"
         android:background="@color/white"
         android:ems="10"
         android:hint="@string/Password"
         android:inputType="textEmailAddress"
         android:textAlignment="center"
-        android:textColorHint="#757575" />
+        android:textColorHint="#757575"
+        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="top|center"
-        android:layout_marginTop="550dp"
+        android:layout_marginTop="372dp"
         android:background="@color/white"
         android:text="@string/Update"
         android:textAllCaps="false"
-        android:textColor="#757575" />
-</FrameLayout>
+        android:textColor="#757575"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/BtnHome"
+        android:layout_width="122dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="10dp"
+        android:onClick="onClick"
+        android:text="@string/Main"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/BtnSpisok"
+        android:layout_width="122dp"
+        android:layout_height="60dp"
+        android:onClick="onClick1"
+        android:text="@string/List"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/BtnSettings"
+        app:layout_constraintStart_toEndOf="@+id/BtnHome" />
+
+    <Button
+        android:id="@+id/BtnSettings"
+        android:layout_width="122dp"
+        android:layout_height="60dp"
+        android:onClick="onClick"
+        android:text="@string/Settings"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

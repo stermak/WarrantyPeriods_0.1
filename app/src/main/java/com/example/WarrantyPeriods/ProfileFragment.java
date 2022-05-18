@@ -5,9 +5,11 @@ import android.os.Bundle;
 
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -97,5 +99,24 @@ public class ProfileFragment extends Fragment {
             startActivity(intent);
         });
         return view;
+    }
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        Button BtnHome = view.findViewById(R.id.BtnHome);
+        Button BtnSpisok = view.findViewById(R.id.BtnSpisok);
+        Button BtnSettings = view.findViewById(R.id.BtnSettings);
+        BtnHome.setOnClickListener(viewCreate -> {
+            Bundle bundleHome = new Bundle();
+            Navigation.findNavController(view).navigate(R.id.action_profileFragment_to_mainFragment, bundleHome);
+        });
+        BtnSpisok.setOnClickListener(viewCreate -> {
+            Bundle bundleSpisok = new Bundle();
+            Navigation.findNavController(view).navigate(R.id.action_profileFragment_to_spisokFragment, bundleSpisok);
+        });
+        BtnSettings.setOnClickListener(viewCreate -> {
+            Bundle bundleSettings = new Bundle();
+            Navigation.findNavController(view).navigate(R.id.action_profileFragment_to_settingsFragment, bundleSettings);
+        });
     }
 }

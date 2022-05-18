@@ -9,58 +9,13 @@
     tools:context=".MainActivity">
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/HomeFragment"
-        android:name="com.example.WarrantyPeriods.HomeFragment"
+        android:id="@+id/fragmentContainerView"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout="@layout/fragment_home">
-    </androidx.fragment.app.FragmentContainerView>
-
-    <TextView
-        android:id="@+id/app_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/monoton"
-        android:gravity="center_horizontal"
-        android:text="@string/Text_name"
-        android:textColor="#82B1FF"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/BtnHome"
-        android:layout_width="122dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="10dp"
-        android:onClick="onClick"
-        android:text="@string/Main"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/BtnSpisok"
-        android:layout_width="122dp"
-        android:layout_height="60dp"
-        android:onClick="onClick1"
-        android:text="@string/List"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/BtnSettings"
-        app:layout_constraintStart_toEndOf="@+id/BtnHome" />
-
-    <Button
-        android:id="@+id/BtnSettings"
-        android:layout_width="122dp"
-        android:layout_height="60dp"
-        android:layout_marginEnd="10dp"
-        android:onClick="onClick"
-        android:text="@string/Settings"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/mobile_navigation"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
